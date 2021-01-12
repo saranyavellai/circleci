@@ -1,0 +1,2 @@
+ALPINE_VERSION=${1:-3.12}
+docker build -t ${REPOSITORY}:alpine-${ALPINE_VERSION} --build-arg ALPINE_VERSION=${ALPINE_VERSION} .
