@@ -31,7 +31,7 @@ jobs:
       - attach_workspace:
           at: .
       - run: apk add make
-      - run: make build REPOSITORY="18375/alpine" ALPINE_VERSION=3.12
+      - run: make build REPOSITORY="18375/alpine" ALPINE_VERSION=3.7
   buiil_n_publish:
     executor: publisher
     steps:
@@ -53,12 +53,12 @@ workflows:
       - build:
           filters:
             branches:
-              ignore: master
+              ignore: main
       - build_alpine:
           filters:
             branches:
-              ignore: master
+              ignore: main
       - buiil_n_publish:
           filters:
             branches:
-              only: master
+              only: main
