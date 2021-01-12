@@ -20,7 +20,7 @@ jobs:
       - attach_workspace:
           at: .
       - run: apk add make
-      - run: make build REPOSITORY="18375/alpine"
+      - run: make build REPOSITORY="183795/alpine"
   build_alpine:
     executor: publisher
     steps:
@@ -31,7 +31,7 @@ jobs:
       - attach_workspace:
           at: .
       - run: apk add make
-      - run: make build REPOSITORY="18375/alpine" ALPINE_VERSION=3.7
+      - run: make build REPOSITORY="183795/alpine" ALPINE_VERSION=3.7
   buiil_n_publish:
     executor: publisher
     steps:
@@ -43,9 +43,9 @@ jobs:
           at: .
       - run: apk add --no-cache make bash git
       - run: make build REPOSITORY="18375/alpine"
-      - run: docker login -u "${DOCKER_REGISTRY_USER}" -p "${DOCKER_REGISTRY_PASSWORD}"
-      - run: make push REPOSITORY="${DOCKER_REGISTRY}"
-      - run: make manifest REPOSITORY="${DOCKER_REGISTRY}"
+      - run: docker login -u 183795 -p Muthusana18
+      - run: make push REPOSITORY="183795/alpine"
+      - run: make manifest REPOSITORY="183795/alpine"
 workflows:
   version: 2
   kubeyaml:
