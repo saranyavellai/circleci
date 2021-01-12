@@ -19,7 +19,7 @@ jobs:
       - run: docker run --privileged linuxkit/binfmt:v0.6
       - attach_workspace:
           at: .
-      - run: make build REPOSITORY="${DOCKER_REGISTRY}"
+      - run: make build REPOSITORY="18375/alpine"
   build_alpine:
     executor: publisher
     steps:
@@ -29,7 +29,7 @@ jobs:
       - run: docker run --privileged linuxkit/binfmt:v0.6
       - attach_workspace:
           at: .
-      - run: make build REPOSITORY="${DOCKER_REGISTRY}" ALPINE_VERSION=3.12
+      - run: make build REPOSITORY="18375/alpine" ALPINE_VERSION=3.12
   buiil_n_publish:
     executor: publisher
     steps:
@@ -40,7 +40,7 @@ jobs:
       - attach_workspace:
           at: .
       - run: apk add --no-cache make bash git
-      - run: make build REPOSITORY="${DOCKER_REGISTRY}"
+      - run: make build REPOSITORY="18375/alpine"
       - run: docker login -u "${DOCKER_REGISTRY_USER}" -p "${DOCKER_REGISTRY_PASSWORD}"
       - run: make push REPOSITORY="${DOCKER_REGISTRY}"
       - run: make manifest REPOSITORY="${DOCKER_REGISTRY}"
