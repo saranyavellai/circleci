@@ -1,0 +1,2 @@
+FROM alpine:${ALPINE_VERSION}
+RUN echo "${ALPINE_VERSION}"
