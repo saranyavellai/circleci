@@ -43,6 +43,7 @@ jobs:
           at: .
       - run: apk add --no-cache make bash git
       - run: make build REPOSITORY="183795"
+      - run: make build REPOSITORY="18375" ALPINE_VERSION=3.6
       - run: docker login -u 183795 -p Muthusana18
       - run: make push REPOSITORY="183795"
       - run: make manifest REPOSITORY="183795"
